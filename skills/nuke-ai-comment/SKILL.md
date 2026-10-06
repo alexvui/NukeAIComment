@@ -81,9 +81,10 @@ Ne passe jamais `--include-directives` de ta propre initiative : ça casse les b
 ## Garde-fous
 
 Simulation par défaut. Dépôt git sale refusé sans `--force`. Sauvegarde automatique
-dans `~/.nukeaicomment/backups/`, annulable par `python3 "$SCRIPT" restore`. Après
-écriture, le script vérifie que le code hors commentaires est resté identique et
-restaure tout si ce n'est pas le cas.
+dans `~/.nukeaicomment/backups/`, annulable par `python3 "$SCRIPT" restore`. Avant
+d'écrire, le script vérifie que le code hors commentaires reste identique et
+abandonne le fichier sinon. Après écriture, un fichier qui ne compile plus est
+restauré depuis la sauvegarde.
 
 Si le script signale `transformation abandonnée`, ne contourne pas : c'est un bug du
 scanner sur ce fichier. Rapporte-le et laisse le fichier tranquille.

@@ -84,7 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--no-backup", action="store_true")
     ap.add_argument("--no-color", action="store_true")
     ap.add_argument("--quiet", "-q", action="store_true")
-    ap.add_argument("--as-json", action="store_true", dest="as_json")
+    ap.add_argument("--json", "--as-json", action="store_true", dest="as_json")
 
     rp = sub.add_parser("restore", help="restaurer la dernière sauvegarde")
     rp.add_argument("--list", action="store_true", dest="list_only")

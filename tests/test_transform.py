@@ -1,4 +1,5 @@
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -419,14 +420,18 @@ class TestBackup(unittest.TestCase):
 class TestCli(unittest.TestCase):
     def run_cli(self, *args, cwd=None):
         entry = Path(__file__).parent.parent / "scripts" / "nukeaicomment.py"
+        # HOME isolé : sinon les sauvegardes s'accumulent dans le vrai ~/.nukeaicomment
+        env = dict(os.environ, HOME=str(self.home), USERPROFILE=str(self.home))
         return subprocess.run([sys.executable, str(entry), *args],
-                              capture_output=True, text=True, cwd=cwd)
+                              capture_output=True, text=True, cwd=cwd, env=env)
 
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
+        self.home = Path(tempfile.mkdtemp())
         (self.tmp / "a.ts").write_text(
             "// Initialize the counter to zero\nlet counter = 0;\n", encoding="utf-8")
         self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.addCleanup(shutil.rmtree, self.home, ignore_errors=True)
 
     def test_dry_run_does_not_write(self):
         before = (self.tmp / "a.ts").read_text()
