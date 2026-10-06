@@ -1,0 +1,19 @@
+{
+  "name": "nuke-ai-comment",
+  "description": "Marketplace du plugin NukeAIComment",
+  "owner": {
+    "name": "Alex"
+  },
+  "plugins": [
+    {
+      "name": "nuke-ai-comment",
+      "description": "Réduit, synthétise, supprime ou humanise les commentaires générés par IA — sans jamais toucher au code",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Alex"
+      },
+      "category": "code-quality"
+    }
+  ]
+}

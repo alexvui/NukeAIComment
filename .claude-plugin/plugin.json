@@ -1,0 +1,18 @@
+{
+  "name": "nuke-ai-comment",
+  "description": "Réduit, synthétise, supprime ou humanise les commentaires générés par IA — sans jamais toucher au code",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alex"
+  },
+  "homepage": "https://github.com/alexvui/NukeAIComment",
+  "repository": "https://github.com/alexvui/NukeAIComment",
+  "keywords": [
+    "comments",
+    "cleanup",
+    "refactoring",
+    "code-style",
+    "ai-generated"
+  ],
+  "license": "MIT"
+}
